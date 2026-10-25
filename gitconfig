@@ -1,10 +1,11 @@
 # vim: ft=gitconfig
 
-# Default/public Git config. My name and email address exist in public Git
-# commit histories anyway, so there is no meaningful privacy protection in not
-# having them here in this public gitconfig dotfile repository.
+# Default/public Git config.
 
 [user]
+  # My name and email address exist in public Git commit histories anyway, so
+  # there is no meaningful privacy protection in not having them here in this
+  # public gitconfig dotfile repository.
   name = Lasse Schlör
   email = lasse-schloer@servermx.de
 [init]
@@ -19,15 +20,17 @@
 [credential]
   helper = cache --timeout 43200
 
-# For local/private overrides of the above "global defaults".
 [include]
+  # For local/private overrides of the above "global defaults". It is no problem
+  # if `~/.gitconfig.local` does not exist.
   path = ~/.gitconfig.local
-# For single-valued settings, the last value simply wins. For multi-valued
-# settings, it depends. Some can be cleared with an empty value and repopulated
-# with subsequent occurrences. For example, to configure a different credential
-# helper in `~/.gitconfig.local` without preferring `cache`:
-# ```
-# [credential]
-#   helper =
-#   helper = libsecret # for example
-# ```
+  # For single-valued settings, the last value simply wins. For multi-valued
+  # settings, it depends. Some can be cleared with an empty value and
+  # repopulated with subsequent occurrences. For example, to configure a
+  # different credential helper in `~/.gitconfig.local` without preferring
+  # `cache`:
+  # ```
+  # [credential]
+  #   helper =
+  #   helper = libsecret # for example
+  # ```
