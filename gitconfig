@@ -1,0 +1,33 @@
+# vim: ft=gitconfig
+
+# Default/public Git config. My name and email address exist in public Git
+# commit histories anyway, so there is no meaningful privacy protection in not
+# having them here in this public gitconfig dotfile repository.
+
+[user]
+  name = Lasse Schlör
+  email = lasse-schloer@servermx.de
+[init]
+  defaultBranch = main
+[core]
+  editor = nvim
+[diff "pandoc"]
+  textconv = pandoc --to=markdown
+  prompt = false
+[alias]
+  wdiff = diff --word-diff=color --unified=1
+[credential]
+  helper = cache --timeout 43200
+
+# For local/private overrides of the above "global defaults".
+[include]
+  path = ~/.gitconfig.local
+# For single-valued settings, the last value simply wins. For multi-valued
+# settings, it depends. Some can be cleared with an empty value and repopulated
+# with subsequent occurrences. For example, to configure a different credential
+# helper in `~/.gitconfig.local` without preferring `cache`:
+# ```
+# [credential]
+#   helper =
+#   helper = libsecret # for example
+# ```
